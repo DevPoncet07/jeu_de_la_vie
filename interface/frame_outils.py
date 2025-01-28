@@ -6,7 +6,7 @@ class FrameOutils(Frame):
         self.boss=boss
         Frame.__init__(self,master=boss,bg='grey30')
         self.img_can=None
-        self.boutton_plus_un=Button(self,text="Avance une frame",command=self.avance_une_frame)
+        self.boutton_plus_un=Button(self,text="Plus une iteration",command=self.avance_une_frame)
         self.boutton_plus_un.grid(row=0,column=0)
         self.boutton_play=Button(self, text="Play", command=self.play)
         self.boutton_play.grid(row=1, column=0,pady=20)

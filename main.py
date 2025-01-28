@@ -1,8 +1,6 @@
 import os
 from tkinter import Tk
 import numpy as np
-#import time
-import subprocess
 from PIL import Image
 
 from interface.framepygame import FramePygame
@@ -28,15 +26,11 @@ class Root(Tk):
         self.all_map=self.cree_array_map(self.size_map)
         self.names_models=self.import_name_models()
         self.frame_outils.remplis_listbox(self.names_models)
-        number=subprocess.call(args=("src/script_go.exe","10"))
-        print(number)
+
 
     def call_affiche_une_frame(self):
-        #chrono=time.time()
         self.all_map=self.avance_une_frame(self.all_map)
         self.affiche_une_frame()
-        #chrono1=time.time()
-        #print("avance une frame : ",chrono1-chrono)
 
     def affiche_une_frame(self):
         liste_image = []
@@ -66,7 +60,6 @@ class Root(Tk):
 
     def rotation_right(self):
         self.rotation+=90
-        print(self.rotation)
         self.img_model_pixel = Image.open("./models/" + str(self.name) + ".png")
         self.img_model_pixel=self.img_model_pixel.rotate(self.rotation,fillcolor=(255,255,255),expand=True)
         self.can.mise_a_jour_model(self.img_model_pixel)
@@ -75,7 +68,6 @@ class Root(Tk):
 
     def rotation_left(self):
         self.rotation-=90
-        print(self.rotation)
         self.img_model_pixel = Image.open("./models/" + str(self.name) + ".png")
         self.img_model_pixel=self.img_model_pixel.rotate(self.rotation,fillcolor=(255,255,255),expand=True)
         self.can.mise_a_jour_model(self.img_model_pixel)
